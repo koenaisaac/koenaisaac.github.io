@@ -21,8 +21,7 @@
         header {
             background: #50b3a2;
             color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
+            padding: 10px 0;
             border-bottom: #e8491d 3px solid;
         }
         header a {
@@ -37,7 +36,7 @@
         }
         header li {
             display: inline;
-            padding: 0 20px 0 20px;
+            padding: 0 20px;
         }
         header #branding {
             float: left;
@@ -94,6 +93,41 @@
         .contact-info i {
             margin-right: 10px;
         }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            header nav {
+                float: none;
+                text-align: center;
+            }
+            header nav ul {
+                display: none;
+            }
+            header nav ul.active {
+                display: block;
+            }
+            header nav ul li {
+                display: block;
+                padding: 10px 0;
+            }
+            header #menu-icon {
+                display: inline-block;
+                cursor: pointer;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            #showcase h1 {
+                font-size: 35px;
+            }
+            #showcase p {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -103,6 +137,7 @@
                 <h1>Koena Ratsiu</h1>
             </div>
             <nav>
+                <span id="menu-icon" class="fas fa-bars"></span>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -160,5 +195,14 @@
     <footer class="footer" id="contact">
         <p>Koena Ratsiu | <a href="mailto:koenaa4@gmail.com"><i class="fas fa-envelope"></i></a> | <a href="https://linkedin.com/in/koena-ratsiu-a78645238"><i class="fab fa-linkedin"></i></a></p>
     </footer>
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navUl = document.querySelector('header nav ul');
+
+        menuIcon.addEventListener('click', () => {
+            navUl.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
